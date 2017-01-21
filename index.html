@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>local</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        @charset "utf-8";body,html{height:100%}a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;vertical-align:baseline}html{font-size:100%}body{position:relative;word-break:break-all;-webkit-text-size-adjust:100%}a{text-decoration:none}blockquote,q{quotes:none}blockquote::after,blockquote::before,q::after,q::before{content:'';content:none}input,textarea{margin:0;padding:0}input,select{vertical-align:middle}ol,ul{list-style:none}table{border-collapse:collapse;border-spacing:0}caption,th{text-align:left}header{display:block}img{vertical-align:bottom}
+        body {
+            font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "ＭＳ Ｐゴシック", Helvetica, Arial, sans-serif;
+            font-size: 80%;
+            color: #444;
+        }
+        .clearfix {
+            *zoom: 1;
+        }
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: table;
+        }
+        .clearfix:after {
+            clear: both;
+        }
+
+        /* ━━━ */
+
+        .title {
+            padding: 20px 20px 30px;
+            font-size: 20px;
+        }
+        .item {
+            padding: 0 20px 30px;
+        }
+        .item li {
+            margin-bottom: 3px;
+        }
+        .item a {
+            display: block;
+            padding: 5px 15px;
+            background: #f3f3f3;
+            color: #333;
+        }
+        .item a:active,
+        .item a:hover {
+            background: #f3f3ff;
+            color: #f90;
+        }
+    </style>
+</head>
+
+<body class="l-body">
+    <h1 class="title">localhost - <span class="js-domain"></span></h1>
+    <ul class="item js-item"></ul>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        (function () {
+            $(function () {
+                if ($('.js-item').length) {
+                    list();
+                }
+            });
+
+            var data = {
+                list: [
+                    {"port": "80","path": "/_www"},
+                    {"port": "8000","path": "/_www"},
+                    {"port": "8001","path": "/_git"},
+                    {"port": "8002","path": "/_git"},
+                    {"port": "8003","path": "/_git"},
+                    {"port": "8004","path": "/_git"},
+                    {"port": "8005","path": "/_git"},
+                    {"port": "8006","path": "/_git"},
+                    {"port": "8007","path": "/_git"},
+                    {"port": "8008","path": "/_git"},
+                    {"port": "8009","path": "/_git"},
+                    {"port": "8010","path": "/_git"},
+                    {"port": "8011","path": "/_git/reservation-history"},
+                    {"port": "8012","path": "/_git_gdlibrary/stat-pc/dist"},
+                    {"port": "8013","path": "/_git/gudumami-jp-sp/src"},
+                    {"port": "8014","path": "/_git"},
+                    {"port": "8015","path": "/_git"},
+                    {"port": "8016","path": "/_git"},
+                    {"port": "8017","path": "/_git"},
+                    {"port": "8018","path": "/_git"},
+                    {"port": "8019","path": "/_git"},
+                    {"port": "8020","path": "/_git"},
+                    {"port": "8021","path": "/_www/sbps"},
+                    {"port": "8022","path": "/_git"},
+                    {"port": "8023","path": "/_git"},
+                    {"port": "8024","path": "/_git"},
+                    {"port": "8025","path": "/_git"},
+                    {"port": "8026","path": "/_git"},
+                    {"port": "8027","path": "/_git"},
+                    {"port": "8028","path": "/_git"},
+                    {"port": "8029","path": "/_git"},
+                    {"port": "8030","path": "/_git"},
+                    {"port": "8031","path": "/_git"},
+                    {"port": "8032","path": "/_git"},
+                    {"port": "8033","path": "/_git_s/admin-base-pc/dist"},
+                    {"port": "8034","path": "/_git/admin-base-pc/dist"},
+                    {"port": "8035","path": "/_git_s/admin-base-sp/dist"},
+                    {"port": "8036","path": "/_git/admin-base-sp/dist"},
+                    {"port": "8037","path": "/_git"},
+                    {"port": "8038","path": "/_git"},
+                    {"port": "8039","path": "/_git"},
+                    {"port": "8040","path": "/_git_s/demos"},
+                    {"port": "8041","path": "/_git"},
+                    {"port": "8042","path": "/_git"},
+                    {"port": "8043","path": "/_git"},
+                    {"port": "8044","path": "/_git"},
+                    {"port": "8045","path": "/_git"},
+                    {"port": "8046","path": "/_git"},
+                    {"port": "8047","path": "/_git"},
+                    {"port": "8048","path": "/_git"},
+                    {"port": "8049","path": "/_git"},
+                    {"port": "8050","path": "/_www/webpagetest/www"}
+                ]
+            };
+            
+            var list = function () {
+                var html = '';
+                var domain = location.hostname;
+                for (var i = 0, leng = data.list.length; i < leng; i++) {
+                    html += '<li><a href="//' + domain + ':' + data.list[i].port + '/">' + data.list[i].port + ' ： ' + data.list[i].path + '</a></li>';
+                }
+                $('.js-item').html(html);
+                $('.js-domain').html(domain);
+            };
+        })();
+    </script>
+</html>
